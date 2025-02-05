@@ -1,0 +1,349 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY WAN SYAIDATUL ZARA SOFEA</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://images.pexels.com/photos/1846422/pexels-photo-1846422.jpeg') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            position: relative;
+            filter: blur(30px); /* Initially blur the entire content */
+            transition: filter 3.0s ease; /* Smooth transition for blur effect */
+        }
+
+        h1 {
+            font-size: 5em;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
+            margin-bottom: 5px;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #00eaff, #00ff00, #8000ff);
+            background-clip: text;
+            color: transparent;
+            z-index: 10;
+        }
+        h2 {
+            font-family: 'Lavishly Yours', cursive;
+            font-size: 4.5em;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            margin-top: -20px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            z-index: 10;
+        }
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            z-index: 10;
+        }
+        .time-box {
+            font-size: 1.5em;
+            margin: 0 10px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .time-box:hover {
+            transform: scale(1.1);
+        }
+        .time-label {
+            font-size: 0.8em;
+            color: #ffcc00;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        #letter-link {
+            margin-top: 30px;
+            width: 166px;
+            height: 40px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.93em;
+            font-weight: normal;
+            color: white;
+            text-decoration: none;
+            background: #333;
+            text-align: center;
+            padding: 10px;
+            border-radius: 16px;
+            transition: 1.5s ease;
+        }
+        #letter-link:hover {
+            filter: brightness(1.5);
+        }
+        .you-lived-text {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            z-index: 10;
+        }
+
+        /* Description Text Style */
+        .birthday-description {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: white;
+            text-align: center;
+            font-weight: normal;
+            line-height: 1.5;
+            display: inline-block;
+            max-width: 75%; /* Set the width to 75% of the screen */
+            margin-left: auto; /* Horizontally center the content */
+            margin-right: auto; /* Horizontally center the content */
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        #seconds {
+            background: url('https://image.shutterstock.com/image-vector/heart-shape-background-illustration-design-260nw-1069831717.jpg') no-repeat center center;
+            background-size: cover;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        /* Confetti styles */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            background-color: transparent;
+            width: 7px; /* Decreased size by 30% */
+            height: 15px; /* Rectangular shape */
+            opacity: 0;
+            animation: fall 3s infinite ease-in;
+            transform-origin: center;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Modified colors */
+        .confetti-piece:nth-child(odd) {
+            background-color: #FF33B5; /* Pink */
+        }
+
+        .confetti-piece:nth-child(2) {
+            background-color: #FFDB33; /* Yellow */
+        }
+
+        .confetti-piece:nth-child(3) {
+            background-color: #A833FF; /* Purple */
+        }
+
+        .confetti-piece:nth-child(4) {
+            background-color: #33FF57; /* Green */
+        }
+
+        .confetti-piece:nth-child(5) {
+            background-color: #33A7FF; /* Light Blue */
+        }
+
+        .confetti-piece:nth-child(6) {
+            background-color: #FF5733; /* Orange */
+        }
+
+        /* Play button style */
+        #playAudioButton {
+            position: fixed; /* Fixed positioning to stay at top */
+            top: 20px; /* Positioned at the top */
+            left: 50%; /* Centered horizontally */
+            transform: translateX(-50%); /* Adjust to perfectly center */
+            z-index: 999; /* Ensure it's on top of blurred content */
+            padding: 15px 30px;
+            background-color: rgb(162, 130, 11);
+            color: rgb(162, 130, 11);
+            font-size: 1.2em;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 1.0s ease;
+        }
+
+        #playAudioButton:hover {
+            background-color: #555;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>HAPPY BIRTHDAY</h1>
+    <h2>Wan Syaidatul Zara Sofea</h2>
+
+    <!-- Play Audio Button -->
+    <button id="playAudioButton" onclick="playAudio()">FOR SOFEA, 21 February</button>
+
+    <audio id="audioControl">
+        <source src="audioMY.mp3.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="you-lived-text">21 FEBRUARY 2004</div>
+    <div class="birthday-description">
+        On this special day, a little princess was born to her parents, a younger sister to her brother and sister, and an older sister to her younger sibling. Now, she has grown into a strong, kind, and caring woman, with a good heart, smart mind, and a beautiful soul.
+    </div>
+    <div class="counter">
+        <div id="years" class="time-box">
+            <span id="year-num">20</span>
+            <div class="time-label">Years</div>
+        </div>
+        <div id="months" class="time-box">
+            <span id="month-num">11</span>
+            <div class="time-label">Months</div>
+        </div>
+        <div id="days" class="time-box">
+            <span id="day-num">4</span>
+            <div class="time-label">Days</div>
+        </div>
+        <div id="hours" class="time-box">
+            <span id="hour-num"></span>
+            <div class="time-label">Hours</div>
+        </div>
+        <div id="minutes" class="time-box">
+            <span id="minute-num"></span>
+            <div class="time-label">Minutes</div>
+        </div>
+        <div id="seconds" class="time-box">
+            <span id="second-num"></span>
+            <div class="time-label">Seconds</div>
+        </div>
+    </div>
+
+    <a id="letter-link" href="#" onclick="checkPassword()">LETTER FOR SOFEA<br>- - - O P E N - - -</a>
+
+    <script>
+        const birthDate = new Date("2004-02-21T00:00:00");
+
+        function updateCounter() {
+            const now = new Date();
+            let years = now.getFullYear() - birthDate.getFullYear();
+            let months = now.getMonth() - birthDate.getMonth();
+            let days = now.getDate() - birthDate.getDate();
+            let hours = now.getHours() - birthDate.getHours();
+            let minutes = now.getMinutes() - birthDate.getMinutes();
+            let seconds = now.getSeconds() - birthDate.getSeconds();
+
+            // Adjust seconds
+            if (seconds < 0) {
+                seconds += 60;
+                minutes--;
+            }
+
+            // Adjust minutes
+            if (minutes < 0) {
+                minutes += 60;
+                hours--;
+            }
+
+            // Adjust hours
+            if (hours < 0) {
+                hours += 24;
+                days--;
+            }
+
+            // Adjust days
+            if (days < 0) {
+                const daysInPrevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+                days += daysInPrevMonth;
+                months--;
+            }
+
+            // Adjust months
+            if (months < 0) {
+                months += 12;
+                years--;
+            }
+
+            // Update the displayed values
+            document.getElementById("year-num").innerText = years;
+            document.getElementById("month-num").innerText = months;
+            document.getElementById("day-num").innerText = days;
+            document.getElementById("hour-num").innerText = hours;
+            document.getElementById("minute-num").innerText = minutes;
+            document.getElementById("second-num").innerText = seconds;
+        }
+
+        function startConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.classList.add('confetti');
+            document.body.appendChild(confettiContainer);
+
+            // Create 150 confetti pieces with random sizes and positions
+            for (let i = 0; i < 150; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.style.left = Math.random() * 100 + 'vw';
+                confettiPiece.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confettiPiece.style.animationDelay = Math.random() * 3 + 's';
+
+                // Apply random rotation for twisted effect
+                const randomRotation = Math.random() * 720 - 360; // Random rotation between -360 and 360 degrees
+                confettiPiece.style.transform = `rotate(${randomRotation}deg)`;
+
+                confettiContainer.appendChild(confettiPiece);
+            }
+        }
+
+        setInterval(updateCounter, 1000);
+        updateCounter();
+        
+        // Trigger confetti animation after a delay
+        setTimeout(startConfetti, 500);
+
+        // Play the audio when the button is clicked
+        function playAudio() {
+            const audio = document.getElementById("audioControl");
+            audio.play();
+            document.getElementById("playAudioButton").style.display = "none"; // Hide the button after playing
+            document.body.style.filter = "blur(0px)"; // Remove the blur effect when the audio plays
+            }
+
+            document.getElementById("letter-link").style.display = "inline-block"; // Show the button
+            
+
+        function checkPassword() {
+            const password = prompt("Enter the password:");
+            if (password === "wss") {
+                window.location.href = "https://sendthesong.xyz/browse";
+            } else {
+                alert("Incorrect password! Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
